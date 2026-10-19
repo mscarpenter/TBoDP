@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Process = () => {
 return (
@@ -10,4 +9,4 @@ return (
 )
 };
 
-export default Articles;
+export default Process;

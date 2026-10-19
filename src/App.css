@@ -1,22 +1,336 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-nav {
+/* CENA 1: 100% da altura visível da tela, preto absoluto */
+.scene-dark {
+  min-height: calc(100vh - 80px);
+  width: 100%;
   display: flex;
-  gap: 10px;
-  padding: 10px;
-  background-color: lightgray;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  background-color: #000000;
 }
 
-nav a {
-  text-decoration: none;
-  color: black;
+
+
+.hero-quote {
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
   font-weight: bold;
+  color: var(--prince-purple-rain);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  max-width: 950px;
+  margin-bottom: 30px;
 }
 
-nav a:hover {
-  color: blue;
+/* CENA 2: Fundo branco natural */
+.scene-light {
+  background-color: #ffffff;
+  color: #111111;
+  padding: 100px 24px;
 }
+
+.light-content {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.light-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+.light-heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: bold;
+  line-height: 1.1;
+  color: #111111;
+  margin-bottom: 24px;
+}
+
+.light-body {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #444444;
+  max-width: 680px;
+}
+
+/* Container que esconde o excesso fora da tela */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  padding: 40px 0;
+}
+
+/* Faixa que desliza continuamente */
+.marquee-track {
+  display: inline-flex;
+  width: max-content;
+  animation: scrollMarquee 25s linear infinite;
+}
+
+/* O texto grande estilizado em roxo */
+.marquee-text {
+  font-size: clamp(4.5rem, 15vw, 13rem); /* Bem maior e responsivo */
+  font-weight: normal;
+  font-style: italic;                    /* Dá o ar editorial do Honey Copy */
+  color: var(--prince-purple-rain);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  padding-right: 60px;
+  line-height: 1;
+}
+
+/* Keyframes: move metade da largura total da faixa e reseta */
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Opcional: pausar animação ao passar o mouse 
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+} 
+*/
+
+.hero-image-placeholder {
+  max-width: 380px;
+  width: 90%;
+  margin: -20px auto 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+
+/* Página de Artigos: Times New Roman e Centralização */
+.articles-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.articles-subtitle {
+  font-size: 0.95rem;
+  color: var(--prince-purple-rain);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+}
+
+.articles-context {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #555555;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Quadro 1: O Cabeçalho inicial do artigo ocupa uma tela inteira */
+.articles-header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  scroll-snap-align: start; /* Trava aqui */
+  border-bottom: none;
+  padding: 0 20px;
+}
+
+/* Quadro 2: A cena do Verso e frase de transição ocupa outra tela inteira */
+.lyric-intro-scene {
+  height: 100vh; /* Exatamente 100% da tela */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  scroll-snap-align: start; /* Trava aqui */
+  padding: 0 20px;
+}
+
+/* Quadro 3: O container dos cards ocupando a tela de análise */
+.lyric-topics {
+  min-height: 120vh; /* Altura necessária para o efeito de rolagem dos cards */
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Cada Bloco de Análise */
+.lyric-block {
+  margin-bottom: 80px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: center;
+}
+
+.lyric-title {
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: #111111;
+  margin-top: 8px;
+}
+
+/* Citação do Verso centralizada */
+.lyric-verse {
+  margin: 30px auto;
+  padding: 20px 30px;
+  background-color: #fafafa;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  max-width: 680px;
+}
+
+.lyric-verse p {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: #111111;
+  line-height: 1.7;
+}
+
+.lyric-lead {
+  font-size: 1.1rem;
+  color: #555555;
+  max-width: 640px;
+  margin: 0 auto 30px;
+}
+
+/* Container do bloco de tópicos com rolagem livre */
+.lyric-topics {
+  position: relative;
+  max-width: 720px;
+  margin: 60px auto 140px;
+  padding: 0 20px;
+}
+
+/* 1. A Faixa Roxa: Ocupa metade da altura (50vh) e 100% da largura da tela */
+.topic-card-base {
+  position: sticky;
+  top: 15vh; /* Posiciona a faixa cobrindo a metade superior/central da visão */
+  height: 50vh; /* Cobre exatamente metade da altura da tela */
+  width: 100vw; /* Vai de ponta a ponta da janela */
+  margin-left: calc(-50vw + 50%); /* Rompe a coluna central e estica até as bordas */
+  margin-right: calc(-50vw + 50%);
+  background-color: rgba(116, 66, 200, 0.2); /* Roxo do Prince translúcido, não opaco */
+  backdrop-filter: blur(0 px); /* Efeito suave no que passa por trás */
+  -webkit-backdrop-filter: blur(0 px);
+  border-radius: 0; /* Sem cara de card: é uma faixa pura de tela cheia */
+  box-shadow: 0 10px 40px rgba(116, 66, 200, 0.2);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 2. O Texto centralizado que flui livremente através da faixa */
+.topic-topic {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 45vh; /* Altura confortável para o texto ser lido dentro da faixa */
+  margin-bottom: 350px; /* Distância para você rolar livremente entre um e outro */
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Ajuste do primeiro conceito para alinhar perfeitamente com a faixa */
+.topic-topic:first-of-type {
+  margin-top: -45vh;
+}
+
+.topic-topic:not(:first-of-type) {
+  margin-top: 0;
+}
+
+/* Tipografia em Times e Branco Puro */
+.topic-concept {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.45rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 8px;
+}
+
+.topic-explanation {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.25rem;
+  line-height: 1.85;
+  color: #ffffff;
+}
+
+/* O primeiro tópico precisa compensar a posição inicial */
+.topic-topic:first-of-type {
+  margin-top: -300px;
+}
+
+/* A partir do segundo tópico, ele segue o fluxo de subida */
+.topic-topic:not(:first-of-type) {
+  margin-top: 0;
+}
+
+/* Título em branco */
+.topic-concept {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 8px;
+}
+
+/* Explicação em branco */
+.topic-explanation {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
 

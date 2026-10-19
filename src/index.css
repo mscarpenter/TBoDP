@@ -1,22 +1,76 @@
-body {
+:root {
+  --prince-purple-rain: #9663c4;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+/* Fundo geral BRANCO com a fonte padrão */
+body {
+  background-color: #ffffff;
+  color: #111111;
   font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
-nav {
+/* Navbar Fixa e Totalmente Transparente com Inversão Dinâmica */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
   display: flex;
-  gap: 10px;
-  padding: 10px;
-  background-color: lightgray;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  background-color: transparent; /* 100% transparente */
+  mix-blend-mode: difference;     /* Inverte a cor sobre o que estiver atrás */
+  pointer-events: auto;
 }
 
-nav a {
-  text-decoration: none;
-  color: black;
+/* Todos os elementos em branco puro para o blend mode calcular a inversão */
+.navbar-brand {
+  font-size: 1.25rem;
   font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.12em;
 }
 
-nav a:hover {
-  color: blue;
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
 }
 
+.navbar-menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-menu a:hover {
+  opacity: 0.7;
+}
+
+/* Botão Let's Talk */
+.navbar-menu a[href="/contact"] {
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+  padding: 8px 20px;
+  color: #ffffff;
+}
+
+body {
+  background-color: #ffffff;
+  color: #111111;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden; /* Evita rolagem lateral indesejada */
+}
